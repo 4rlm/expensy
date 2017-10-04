@@ -8,4 +8,6 @@ use Rack::MethodOverride
 use UsersController
 use CategoriesController
 use ExpensesController
+use AccountsController
+use ContactsController
 run ApplicationController

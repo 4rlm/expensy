@@ -12,20 +12,23 @@
 
 ActiveRecord::Schema.define(version: 20160720175448) do
 
-  create_table "categories", force: :cascade do |t|
-    t.string  "name"
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "categories", id: :serial, force: :cascade do |t|
+    t.string "name"
     t.integer "user_id"
   end
 
-  create_table "expenses", force: :cascade do |t|
-    t.string  "description"
-    t.float   "amount"
-    t.string  "date"
+  create_table "expenses", id: :serial, force: :cascade do |t|
+    t.string "description"
+    t.float "amount"
+    t.string "date"
     t.integer "category_id"
     t.integer "user_id"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", id: :serial, force: :cascade do |t|
     t.string "username"
     t.string "email"
     t.string "password_digest"
